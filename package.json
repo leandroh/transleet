@@ -1,0 +1,9 @@
+{
+  "name"         : "node-transleet",
+  "version"      : "0.0.1",
+  "description"  : "Google, translate it!",
+  "author"       : "parazito",
+  "dependencies" : {
+    "request"    : "latest"
+  }
+}
