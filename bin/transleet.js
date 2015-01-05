@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
+if (!process.argv[2]) {
+  return console.log('Usage: transleet [whatever]');
+}
+
 var transleet = require('../src/transleet.js'),
-    args = process.argv.splice(2).join(' '),
-    query = args || 'hello world',
+    query = process.argv.splice(2).join(' '),
     sourceLang = 'en',
     targetLang = 'pt',
     url = 'http://translate.google.com/translate_a/t?client=p&ie=UTF-8&oe=UTF-8&sl=' + sourceLang + '&tl=' + targetLang + '&q=' + query;
