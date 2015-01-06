@@ -3,7 +3,13 @@
   "version"      : "0.0.1",
   "description"  : "Google, translate it!",
   "author"       : "parazito",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies" : {
     "request"    : "latest"
+  },
+  "devDependencies": {
+    "mocha": "*"
   }
 }
