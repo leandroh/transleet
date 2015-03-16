@@ -1,13 +1,18 @@
 {
-  "name"         : "node-transleet",
+  "name"         : "transleet",
   "version"      : "0.0.1",
-  "description"  : "Google, translate it!",
+  "description"  : "Translate text from the command line using Google Translate.",
   "author"       : "parazito",
+  "keywords"     : [
+    "google",
+    "translate"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/leandroh/transleet.git"
+  },
   "scripts": {
     "test": "mocha"
-  },
-  "dependencies" : {
-    "request"    : "latest"
   },
   "devDependencies": {
     "mocha": "*"
