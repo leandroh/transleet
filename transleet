@@ -1,0 +1,43 @@
+#!/usr/bin/env node
+
+'use strict';
+
+if (!process.argv[2]) {
+  return console.log('Usage: transleet [whatever]');
+}
+
+var http = require('http'),
+    query = process.argv.splice(2).join(' '),
+    sourceLang = 'en',
+    targetLang = 'pt',
+    url = 'http://translate.google.com/translate_a/t?client=p&ie=UTF-8&oe=UTF-8&sl=' + sourceLang + '&tl=' + targetLang + '&q=' + query;
+
+function parseBody(body) {
+  var translate = JSON.parse(body),
+      sentences = translate.sentences,
+      translation = sentences.shift().trans;
+
+  return translation;
+}
+
+function transleet(url, callback) {
+  var req = http.get(url, function(response) {
+    response.setEncoding('utf8');
+
+    response.on('data', function(body) {
+      if (response.statusCode === 200) {
+        return callback(parseBody(body));
+      }
+    });
+  });
+
+  req.on('error', function(e) {
+    console.log('Error while trying to make request: ' + e.message);
+  });
+}
+
+function translated(trans) {
+  console.log(trans);
+}
+
+transleet(url, translated);
